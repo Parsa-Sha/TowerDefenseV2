@@ -14,7 +14,11 @@ void play() {
   } else timer++;
   
   
-  for (int i = 0; i < mobs.size(); i++) mobs.get(i).act();
+  for (int i = 0; i < mobs.size(); i++) {
+    exampleMob = mobs.get(i);
+    exampleMob.act();
+    if (exampleMob.hp == 0) mobs.remove(i);
+  }
   
   image(hpimg[lives], 850, 50);
   

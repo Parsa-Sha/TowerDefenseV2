@@ -20,7 +20,7 @@ class Mob {
   void act() {
     advance();
     turn();
-    display();    
+    display();
     damage();
   }
 
@@ -38,20 +38,15 @@ class Mob {
       }
     }
   }
-  
+
   void display() {
     image(mobimg[difficulty], x, y, s, s);
   }
-  
+
   void damage() {
     if (x > width) { // If reached the end, lower lives + destroy mob
       lives--;
-      for (int i = 0; i < mobs.size(); i++) { // Checking to see which mob
-        exampleMob = mobs.get(i);
-        if (exampleMob.equals(this)) {
-          exampleMob.remove();
-        }
-      }
+      hp = 0;
     }
   }
 }

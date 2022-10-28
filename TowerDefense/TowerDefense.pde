@@ -27,7 +27,7 @@ Button start;
 //Collections of objects
 Node[] nodes;
 Node exampleNode;
-Mob = exampleMob;
+Mob exampleMob;
 ArrayList<Mob> mobs = new ArrayList<Mob>();
 
 
