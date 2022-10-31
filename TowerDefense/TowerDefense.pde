@@ -23,6 +23,7 @@ color[][] palette;
 
 //Buttons
 Button start;
+Button waveButton;
 
 //Collections of objects
 Node[] nodes;
@@ -121,6 +122,7 @@ void makeButtons() {
   start = new Button("START", width/2, 3*height/4, 200, 100, palette[difficulty][2], palette[difficulty][1], palette[difficulty][1], palette[difficulty][0], 3, 1);
 
   //PLAY - Next Wave, To Build Mode
+  waveButton = new Button("NEXT\nWAVE", 950, 750, 75, 75, palette[difficulty][2], palette[difficulty][1], palette[difficulty][1], palette[difficulty][0], 3, 1);
 
   //BUILD - To play mode, Buy Sniper, Buy Gun, Buy AoE
 
@@ -134,13 +136,13 @@ void makeNodes() {
   nodes[0] = new Node(100, 400, 0, -1);
   nodes[1] = new Node(100, 200, 1, 0);
   nodes[2] = new Node(300, 200, 0, 1);
-  nodes[3] = new Node(300, 600, 1, 0);
-  nodes[4] = new Node(100, 400, 0, -1);
-  nodes[5] = new Node(100, 400, 0, -1);
-  nodes[6] = new Node(100, 400, 0, -1);
-  nodes[7] = new Node(100, 400, 0, -1);
-  nodes[8] = new Node(100, 400, 0, -1);
-  nodes[9] = new Node(100, 400, 0, -1);
+  nodes[3] = new Node(300, 400, -1, 1);
+  nodes[4] = new Node(100, 600, 1, 0);
+  nodes[5] = new Node(300, 600, 1, -1);
+  nodes[6] = new Node(500, 400, 0, -1);
+  nodes[7] = new Node(500, 200, 1, 0);
+  nodes[8] = new Node(900, 200, -1, 1);
+  nodes[9] = new Node(500, 600, 1, -0);
   
 }
 
@@ -150,6 +152,12 @@ void makePath() {
   line(0, 400, 100, 400);
   line(100, 400, 100, 200);
   line(100, 200, 300, 200);
-  line(300, 200, 300, 600);
-  line(300, 600, width, 600);
+  line(300, 200, 300, 400);
+  line(300, 400, 100, 600);
+  line(100, 600, 300, 600);
+  line(300, 600, 500, 400);
+  line(500, 400, 500, 200);
+  line(500, 200, 900, 200);
+  line(900, 200, 500, 600);
+  line(500, 600, width, 600);
 }
