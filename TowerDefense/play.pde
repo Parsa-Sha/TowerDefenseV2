@@ -17,7 +17,8 @@ void play() {
   } else timer++;
 
   
-  image(hpimg[lives], 850, 50);
+  
+  image(hpimg[lives], 850, 50); // Lives image
   
   strokeWeight(0);
   fill(palette[difficulty][1]);
@@ -30,6 +31,9 @@ void mobAct() {
   for (int i = 0; i < mobs.size(); i++) {
     exampleMob = mobs.get(i);
     exampleMob.act();
-    if (exampleMob.hp == 0) mobs.remove(i);
+    if (exampleMob.hp == 0) {
+      mobs.remove(i);
+      i--;
+    }
   }
 }

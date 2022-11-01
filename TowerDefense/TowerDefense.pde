@@ -30,6 +30,9 @@ Node[] nodes;
 Node exampleNode;
 Mob exampleMob;
 ArrayList<Mob> mobs = new ArrayList<Mob>();
+ArrayList<Tower> towerss = new ArrayList<Tower>();
+ArrayList<Bullet> bullets = new ArrayList<Bullet>();
+
 
 
 //Images and Gifs
