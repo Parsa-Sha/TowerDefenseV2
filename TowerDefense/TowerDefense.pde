@@ -29,8 +29,10 @@ Button waveButton;
 Node[] nodes;
 Node exampleNode;
 Mob exampleMob;
+Tower exampleTower;
+Bullet exampleBullet;
 ArrayList<Mob> mobs = new ArrayList<Mob>();
-ArrayList<Tower> towerss = new ArrayList<Tower>();
+ArrayList<Tower> towers = new ArrayList<Tower>();
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 
 

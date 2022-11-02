@@ -7,12 +7,12 @@
 class Mob {
   float hp, sp, x, y, vx, vy, s;
 
-  Mob(float S, float Health, float Speed) {
+  Mob(float X, float Y, float S, float Health, float Speed) {
     s = S;
     hp = Health;
     sp = Speed;
-    x = 0;
-    y = 400;
+    x = X;
+    y = Y;
     vx = 1 * sp;
     vy = 0 * sp;
   }
@@ -35,6 +35,14 @@ class Mob {
       if (dist(exampleNode.x, exampleNode.y, x, y) < 2) {
         vx = exampleNode.vx * sp;
         vy = exampleNode.vy * sp;
+      }
+    }
+    
+    for (int i = 0; i < bullets.size(); i++) {
+      exampleBullet = bullets.get(i);
+      if (dist(x, y, exampleBullet.x, exampleBullet.y) < (s/2) + (exampleBullet.s/2)) {
+        hp = 0;
+        exampleBullet.hp = 0;
       }
     }
   }

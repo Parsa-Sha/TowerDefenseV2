@@ -53,11 +53,15 @@ class Tower {
       break;
     }
   }
-  
+
   void shoot() {
-    bullets.add(new Bullet(x, y, 0, 1));
-    bullets.add(new Bullet(x, y, 0, -1));
-    bullets.add(new Bullet(x, y, 1, 0));
-    bullets.add(new Bullet(x, y, -1, 0));
+    cd++;
+    if (cd == threshold) {
+      cd = 0;
+      bullets.add(new Bullet(x, y, 0, 5));
+      bullets.add(new Bullet(x, y, 0, -5));
+      bullets.add(new Bullet(x, y, 5, 0));
+      bullets.add(new Bullet(x, y, -5, 0));
+    }
   }
-}
+} // End of Tower Class
