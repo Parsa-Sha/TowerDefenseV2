@@ -14,33 +14,35 @@ void play() {
 
   if (lives <= 0) mode = GAMEOVER;
 
-  if (
-    mousePressed
-    &&
-    boundingBox(width/2, height/2-75, width, 650)
-    &&
-    !boundingBox(width/2, 725, width, 150)
-    &&
-    !boundingBox(850, 50, 250, 100)
-    ) towers.add(new Tower(0, mouseX, mouseY, 0, 100));
-
-  println(bullets.size());
+//  if (
+//    mousePressed
+//    &&
+//    boundingBox(width/2, height/2-75, width, 650)
+//    &&
+//    !boundingBox(width/2, 725, width, 150)
+//    &&
+//    !boundingBox(850, 50, 250, 100)
+//    ) 
 
 
   image(hpimg[lives], 850, 50); // Lives image
 
+  
   strokeWeight(0);
   fill(palette[difficulty][1]);
   rect(width/2, 725, width, 150);
   waveButton.show();
   if (waveButton.press()) nextWave();
+  addTower.show();
+  if (addTower.press()) towers.add(new Tower(0, mouseX, mouseY, 0, 100));
+
 }
 
 void nextWave() {
   if (mobs.size() == 0) {
     wave++;
     for (int i = 0; i < wave; i++) {
-      mobs.add(new Mob(-i*50, height/2, 50, 1, 5));
+      mobs.add(new Mob(-i*50, height/2, 50, 1, 1));
     }
   }
 }

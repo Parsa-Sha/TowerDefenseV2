@@ -15,6 +15,10 @@ class Tower {
 
   float x, y;
   int type, cd, threshold;
+  
+  final int PLACING = 0;
+  final int PLACED = 1;
+  int towerMode;
 
   Tower (int Type, float X, float Y, int CD, int Threshold) {
     type = Type;
@@ -35,7 +39,8 @@ class Tower {
       stroke(0);
       strokeWeight(3);
       fill(0, 0, 255);
-      square(x, y, 50);
+      if (mode == PLACED) square(x, y, 50);
+      else if (mode == PLACING) square(mouseX, mouseY, 50);
       break;
 
     case 1:
@@ -52,16 +57,24 @@ class Tower {
       square(x, y, 50);
       break;
     }
+    
+    if (mousePressed && boundingBox(width/2, 325, width, 650) && towerMode == PLACING) {
+      mode = PLACED;
+      x = mouseX;
+      y = mouseY;
+    }
   }
 
   void shoot() {
-    cd++;
-    if (cd == threshold) {
-      cd = 0;
-      bullets.add(new Bullet(x, y, 0, 5));
-      bullets.add(new Bullet(x, y, 0, -5));
-      bullets.add(new Bullet(x, y, 5, 0));
-      bullets.add(new Bullet(x, y, -5, 0));
+    if (mobs.size() != 0) {
+      cd++;
+      if (cd == threshold) {
+        cd = 0;
+        bullets.add(new Bullet(x, y, 0, 5));
+        bullets.add(new Bullet(x, y, 0, -5));
+        bullets.add(new Bullet(x, y, 5, 0));
+        bullets.add(new Bullet(x, y, -5, 0));
+      }
     }
   }
 } // End of Tower Class
