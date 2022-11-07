@@ -58,8 +58,9 @@ class Tower {
       break;
     }
     
-    if (mousePressed && boundingBox(width/2, 325, width, 650) && towerMode == PLACING) {
-      mode = PLACED;
+    if (mousePressed && boundingBox(width/2, 325, width, 650) && towerMode == PLACING && globalCD > 10) {
+      cd = 0;
+      towerMode = PLACED;
       x = mouseX;
       y = mouseY;
     }

@@ -11,6 +11,7 @@ final int GAMEOVER = 3;
 int mode = INTRO;
 
 int lives = 3;
+int cash = 100;
 int difficulty = 0;
 
 float rotation = 0;
@@ -43,6 +44,7 @@ ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 PImage[] bg;
 PImage[] hpimg;
 PImage[] mobimg;
+Gif coinGif;
 
 //Fonts
 
@@ -100,6 +102,8 @@ void initializeVariables() {
   hpimg[1] = loadImage("/data/lives/oneLife.png");
   hpimg[2] = loadImage("/data/lives/twoLives.png");
   hpimg[3] = loadImage("/data/lives/threeLives.png");
+  
+  coinGif = new Gif(1, 50, 50, 100, 100, "data/coinGif/", "coin", 6, 10);
   
   //Load Fonts
 
